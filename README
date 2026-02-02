@@ -6,7 +6,7 @@
 
 A premium, responsive portfolio website designed to showcase my journey as a **Web & Mobile Developer** and **Data Scientist**. Inspired by the "Trueman" aesthetic, this site features a minimalist split-layout design with a seamless user experience.
 
-🔗 **Live Demo:** [Insert Your Link Here, e.g., https://ahmadsanoh.github.io/]
+🔗 **Live Demo:** https://ahmadsanoh.github.io/]
 
 ---
 
@@ -37,5 +37,4 @@ A premium, responsive portfolio website designed to showcase my journey as a **W
 ├── index.html          # Main landing page (Home)
 ├── portfolio.html      # Project showcase grid
 ├── resume.html         # Detailed professional background
-├── me.jpeg             # Profile avatar
-└── assets/             # Images and local resources
+├── me.jpeg             # Profile Picture
