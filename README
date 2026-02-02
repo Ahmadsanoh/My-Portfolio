@@ -1,0 +1,41 @@
+# 👨‍💻 Ahmad Sanoh | Portfolio
+
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Tailwind](https://img.shields.io/badge/CSS-Tailwind-38B2AC?logo=tailwind-css)
+
+A premium, responsive portfolio website designed to showcase my journey as a **Web & Mobile Developer** and **Data Scientist**. Inspired by the "Trueman" aesthetic, this site features a minimalist split-layout design with a seamless user experience.
+
+🔗 **Live Demo:** [Insert Your Link Here, e.g., https://ahmadsanoh.github.io/]
+
+---
+
+## ✨ Features
+
+- **🌓 Dual Theme Engine:** Smooth transition between Dark and Light modes with persistent local storage.
+- **🌍 Multilingual Support:** Integrated Google Translate API for French and English accessibility.
+- **📱 Fully Responsive:** Optimized for all devices, from mobile screens to ultra-wide monitors.
+- **🚀 Interactive UI:** - Dynamic typing effects using **Typed.js**.
+  - Scroll-triggered animations powered by **AOS**.
+  - Sticky sidebar navigation for quick access to contact info and social links.
+- **🎨 Modern Tech Stack:** Built with utility-first CSS for high performance and easy maintenance.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Tailwind CSS](https://tailwindcss.com/)
+- **Icons:** [Font Awesome 6](https://fontawesome.com/)
+- **Animations:** [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/) & [Typed.js](https://mattboldt.com/demos/typed-js/)
+- **Language:** HTML5, Modern JavaScript
+
+---
+
+## 📂 Project Structure
+
+```text
+├── index.html          # Main landing page (Home)
+├── portfolio.html      # Project showcase grid
+├── resume.html         # Detailed professional background
+├── me.jpeg             # Profile avatar
+└── assets/             # Images and local resources

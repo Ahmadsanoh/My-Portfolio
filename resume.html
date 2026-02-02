@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Resume - Ahmad Sanoh</title>
+    <style>
+        :root { 
+            --accent: #3b82f6; 
+            --bg-dark: #0b1118; 
+            --card-dark: #141c26; 
+            --border: #1e293b; 
+            --text-main: #f8fafc;
+            --text-muted: #64748b;
+        }
+
+        body.light-mode {
+            --bg-dark: #f1f5f9;
+            --card-dark: #ffffff;
+            --border: #e2e8f0;
+            --text-main: #1e293b;
+            --text-muted: #475569;
+        }
+
+        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; transition: 0.3s; scroll-behavior: smooth; }
+        
+        .banner-resume {
+            background: linear-gradient(rgba(11, 17, 24, 0.85), rgba(11, 17, 24, 1)), 
+                        url('https://trueman.bslthemes.com/wp-content/uploads/2021/11/slide-3-scaled-1920x1279.jpg');
+            background-size: cover; background-position: center; height: 350px;
+        }
+
+        .trm-timeline { position: relative; padding-left: 20px; border-left: 1px solid var(--border); }
+        .trm-timeline-item { position: relative; margin-bottom: 40px; }
+        .trm-timeline-item::before {
+            content: ''; position: absolute; left: -26px; top: 24px;
+            width: 11px; height: 11px; border-radius: 50%;
+            background: var(--bg-dark); border: 2px solid var(--accent); z-index: 2;
+        }
+
+        .trm-card { background: var(--card-dark); border: 1px solid var(--border); border-radius: 1.5rem; transition: 0.4s; height: 100%; }
+        .trm-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); }
+        .trm-title-divider { display: flex; align-items: center; gap: 15px; margin-bottom: 30px; }
+        .trm-title-divider div { height: 1px; flex-grow: 1; background: var(--border); }
+
+        .prog-bg { background: var(--border); height: 4px; border-radius: 2px; overflow: hidden; }
+        .prog-fill { background: var(--accent); height: 100%; border-radius: 2px; }
+
+        .nav-link-active { color: var(--accent) !important; position: relative; }
+        .nav-link-active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background: var(--accent); }
+
+        .theme-switch-wrapper { display: flex; align-items: center; background: var(--card-dark); border: 1px solid var(--border); border-radius: 20px; padding: 2px; cursor: pointer; width: 60px; height: 30px; position: relative; }
+        .theme-switch-ball { position: absolute; background: var(--accent); width: 24px; height: 24px; border-radius: 50%; transition: 0.3s; left: 3px; }
+        body.light-mode .theme-switch-ball { left: 31px; }
+        
+        .lang-dropdown:hover .lang-menu { display: block; }
+        .lang-menu { display: none; position: absolute; right: 0; background: var(--card-dark); border: 1px solid var(--border); border-radius: 12px; top: 100%; min-width: 140px; z-index: 100; }
+    </style>
+</head>
+<body class="dark-mode">
+
+    <div id="google_translate_element" class="hidden"></div>
+
+    <header class="fixed top-0 w-full z-50 bg-[#0b1118]/80 backdrop-blur-md border-b border-[#1e293b] px-6 lg:px-10 py-4 flex justify-between items-center text-white">
+        <div class="text-2xl font-black uppercase tracking-tighter">True<span class="text-blue-500">man</span></div>
+        <nav class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-slate-400">
+            <a href="index.html" class="hover:text-white transition">Accueil</a>
+            <a href="portfolio.html" class="hover:text-white transition">Portfolio</a>
+            <a href="resume.html" class="nav-link-active transition">Resume</a>
+            <a href="mailto:sanohahmad1996@gmail.com" class="hover:text-white transition">Contact</a>
+        </nav>
+        <div class="flex items-center gap-4 lg:gap-6">
+            <div class="theme-switch-wrapper" onclick="toggleTheme()">
+                <div class="theme-switch-ball"></div>
+                <div class="flex justify-between w-full px-2 text-[10px] text-yellow-500"><i class="fas fa-sun"></i><i class="fas fa-moon text-slate-500"></i></div>
+            </div>
+            <div class="lang-dropdown relative">
+                <button class="bg-[#141c26] border border-[#1e293b] px-4 py-2 rounded-lg text-[10px] font-bold uppercase flex items-center gap-2 text-white">
+                    <i class="fas fa-globe text-blue-500"></i><i class="fas fa-chevron-down opacity-50 text-[8px]"></i>
+                </button>
+                <div class="lang-menu shadow-2xl">
+                    <button onclick="translatePage('fr')" class="w-full text-left px-4 py-3 text-[10px] font-bold uppercase hover:bg-blue-600 transition flex items-center gap-2 border-b border-slate-800 text-white"><img src="https://flagcdn.com/w20/fr.png" width="16"> Français</button>
+                    <button onclick="translatePage('en')" class="w-full text-left px-4 py-3 text-[10px] font-bold uppercase hover:bg-blue-600 transition flex items-center gap-2 text-white"><img src="https://flagcdn.com/w20/us.png" width="16"> English</button>
+                </div>
+            </div>
+            <a href="#" class="hidden lg:flex bg-blue-600 px-5 py-2.5 rounded-lg text-[10px] font-black uppercase gap-2 shadow-lg shadow-blue-500/20 text-white hover:bg-blue-700 transition"><i class="fas fa-download"></i> CV</a>
+        </div>
+    </header>
+
+    <section class="banner-resume flex items-center">
+        <div class="container mx-auto px-6 lg:px-10 pt-16">
+            <div class="max-w-4xl lg:ml-[35%]">
+                <span class="trm-label text-blue-500">Resume</span>
+                <h1 class="text-4xl lg:text-6xl font-black mt-4 leading-tight text-white uppercase">Parcours & Expertise</h1>
+            </div>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-6 lg:px-10 -mt-16 pb-20">
+        <div class="flex flex-col lg:flex-row gap-10">
+            
+            <div class="lg:w-1/3">
+                <div class="trm-card p-10 text-center sticky top-24 shadow-2xl">
+                    <img src="me.jpeg" class="w-32 h-32 mx-auto rounded-3xl border-2 border-blue-500 rotate-3 object-cover mb-6 shadow-xl" alt="Ahmad Sanoh">
+                    <h2 class="text-2xl font-black">Ahmad Sanoh</h2>
+                    <p class="trm-label mt-2 text-blue-500">Fullstack Web & Mobile Developer</p>
+                    <div class="my-8 h-[1px] bg-slate-800"></div>
+                    <ul class="space-y-4 text-left">
+                        <li class="flex justify-between text-xs font-bold uppercase"><span class="text-slate-500">Email:</span><span class="text-[9px] lowercase">sanohahmad1996@gmail.com</span></li>
+                        <li class="flex justify-between text-xs font-bold uppercase"><span class="text-slate-500">Phone:</span><span>+33 6 06 49 96 18</span></li>
+                        <li class="flex justify-between text-xs font-bold uppercase"><span class="text-slate-500">Diplôme:</span><span>License & Master (En cours)</span></li>
+                        <li class="flex justify-between text-xs font-bold uppercase"><span class="text-slate-500">Ville:</span><span>Paris, FR</span></li>
+                        <li class="flex justify-between text-xs font-bold uppercase"><span class="text-slate-500">Statut:</span><span class="text-green-500">Disponible</span></li>
+                    </ul>
+                    <div class="my-8 h-[1px] bg-slate-800"></div>
+                    <div class="flex justify-center gap-6 text-slate-500 mb-6">
+                        <a href="https://github.com/Ahmadsanoh" target="_blank" class="hover:text-blue-500 transition transform hover:scale-110"><i class="fab fa-github text-xl"></i></a>
+                        <a href="https://www.linkedin.com/in/ahmad-sanoh-10a614223/" target="_blank" class="hover:text-blue-500 transition transform hover:scale-110"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="https://www.fiverr.com/ahmadsanoh/" target="_blank" class="hover:text-green-500 transition transform hover:scale-110 font-black text-xl leading-none">fi.</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-2/3 space-y-12">
+                
+                <section>
+                    <div class="trm-title-divider">
+                        <h5 class="text-xl font-black uppercase">Historique Professionnel</h5>
+                        <div></div>
+                        <span class="text-blue-500 font-bold text-sm">01</span>
+                    </div>
+                    <div class="trm-timeline">
+                        <div class="trm-timeline-item">
+                            <div class="trm-card p-8">
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                                    <h6 class="text-sm font-black uppercase">Fullstack Software Engineer <span class="text-blue-500 text-[10px] ml-2">(Part-time)</span></h6>
+                                    <div class="text-[10px] text-blue-500 font-bold italic mt-1 md:mt-0">Grab, KL | Jan - Mars 2022</div>
+                                </div>
+                                <div class="space-y-4">
+                                    <p class="text-xs text-slate-400 leading-relaxed"><strong class="text-white">Description:</strong> Intégration de l'équipe backend pour améliorer la scalabilité des services de livraison.</p>
+                                    <div>
+                                        <span class="text-[10px] font-black uppercase text-blue-500 block mb-2">Missions:</span>
+                                        <ul class="text-xs text-slate-500 space-y-2 list-disc ml-4">
+                                            <li>Optimisation des microservices Go pour réduire la latence des commandes de 15%.</li>
+                                            <li>Développement d'APIs robustes pour le module GrabFood.</li>
+                                            <li>Maintenance des clusters Kubernetes et monitoring via Prometheus.</li>
+                                        </ul>
+                                    </div>
+                                    <p class="text-[10px] text-slate-400 italic"><strong class="text-white">Environnement technique:</strong> Go, Kubernetes, Docker, PostgreSQL, Redis, Microservices.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="trm-timeline-item">
+                            <div class="trm-card p-8">
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                                    <h6 class="text-sm font-black uppercase">Stagiaire Développeur Web <span class="text-blue-500 text-[10px] ml-2">(Stage)</span></h6>
+                                    <div class="text-[10px] text-blue-500 font-bold italic mt-1 md:mt-0">Freelance / Projets Académiques | 2021</div>
+                                </div>
+                                <div class="space-y-4">
+                                    <p class="text-xs text-slate-400 leading-relaxed"><strong class="text-white">Description:</strong> Développement et maintenance d'applications web responsives.</p>
+                                    <div>
+                                        <span class="text-[10px] font-black uppercase text-blue-500 block mb-2">Missions:</span>
+                                        <ul class="text-xs text-slate-500 space-y-2 list-disc ml-4">
+                                            <li>Conception d'interfaces utilisateur modernes avec React et Tailwind CSS.</li>
+                                            <li>Intégration de fonctionnalités backend simples avec Node.js.</li>
+                                            <li>Gestion du versioning de code via Git et GitHub.</li>
+                                        </ul>
+                                    </div>
+                                    <p class="text-[10px] text-slate-400 italic"><strong class="text-white">Environnement technique:</strong> JavaScript, React, CSS3, HTML5, Git.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="trm-timeline-item">
+                            <div class="trm-card p-8">
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                                    <h6 class="text-sm font-black uppercase">Mobile App Consultant <span class="text-blue-500 text-[10px] ml-2">(Part-time)</span></h6>
+                                    <div class="text-[10px] text-blue-500 font-bold italic mt-1 md:mt-0">Mindvalley, KL | Août - Oct 2021</div>
+                                </div>
+                                <div class="space-y-4">
+                                    <p class="text-xs text-slate-400 leading-relaxed"><strong class="text-white">Description:</strong> Expertise technique sur l'application mobile pour améliorer l'expérience utilisateur globale.</p>
+                                    <div>
+                                        <span class="text-[10px] font-black uppercase text-blue-500 block mb-2">Missions:</span>
+                                        <ul class="text-xs text-slate-500 space-y-2 list-disc ml-4">
+                                            <li>Refonte graphique de composants Flutter pour une navigation plus fluide.</li>
+                                            <li>Mise en place de tests unitaires et d'intégration automatisés.</li>
+                                            <li>Synchronisation des données en temps réel via Firebase Cloud Firestore.</li>
+                                        </ul>
+                                    </div>
+                                    <p class="text-[10px] text-slate-400 italic"><strong class="text-white">Environnement technique:</strong> Flutter, Dart, Firebase, Provider (State Management), Gitlab CI.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="mes-competences">
+                    <div class="trm-title-divider">
+                        <h5 class="text-xl font-black uppercase">Mes Compétences</h5>
+                        <div></div>
+                        <span class="text-blue-500 font-bold text-sm">02</span>
+                    </div>
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="trm-card p-8">
+                            <h6 class="text-xs font-black uppercase mb-6 text-blue-500">Web & Mobile Development</h6>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase mb-2"><span>React / Next.js / AngularJS</span><span>95%</span></div>
+                                    <div class="prog-bg"><div class="prog-fill" style="width: 95%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase mb-2"><span>Flutter / Dart / React Native</span><span>90%</span></div>
+                                    <div class="prog-bg"><div class="prog-fill" style="width: 90%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase mb-2"><span>TypeScript / JavaScript / Java</span><span>88%</span></div>
+                                    <div class="prog-bg"><div class="prog-fill" style="width: 88%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase mb-2"><span>Tailwind CSS / HTML / CSS</span><span>100%</span></div>
+                                    <div class="prog-bg"><div class="prog-fill" style="width: 100%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase mb-2"><span>Kotlin / Swift / iOS & Android</span><span>90%</span></div>
+                                    <div class="prog-bg"><div class="prog-fill" style="width: 90%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase mb-2"><span>UI/UX Mobile Design</span><span>92%</span></div>
+                                    <div class="prog-bg"><div class="prog-fill" style="width: 92%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="trm-card p-8">
+                            <h6 class="text-xs font-black uppercase mb-6 text-blue-500">API, Backend & DevOps</h6>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase mb-2"><span>REST API / FastAPI / Flask</span><span>90%</span></div>
+                                    <div class="prog-bg"><div class="prog-fill" style="width: 90%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase mb-2"><span>Django / Node.js / Firebase</span><span>95%</span></div>
+                                    <div class="prog-bg"><div class="prog-fill" style="width: 95%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase mb-2"><span>SQL (PostgreSQL) / NoSQL</span><span>95%</span></div>
+                                    <div class="prog-bg"><div class="prog-fill" style="width: 95%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase mb-2"><span>Git / GitHub / CI-CD</span><span>95%</span></div>
+                                    <div class="prog-bg"><div class="prog-fill" style="width: 95%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="trm-card p-8">
+                            <h6 class="text-xs font-black uppercase mb-6 text-blue-500">Data Science & Big Data</h6>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase mb-2"><span>Python (Pandas, NumPy, Scikit-learn)</span><span>90%</span></div>
+                                    <div class="prog-bg"><div class="prog-fill" style="width: 90%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase mb-2"><span>Big Data Analysis / MongoDB</span><span>89%</span></div>
+                                    <div class="prog-bg"><div class="prog-fill" style="width: 89%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase mb-2"><span>Data Cleaning & Preprocessing</span><span>92%</span></div>
+                                    <div class="prog-bg"><div class="prog-fill" style="width: 92%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase mb-2"><span>R / SQL Analysis</span><span>90%</span></div>
+                                    <div class="prog-bg"><div class="prog-fill" style="width: 90%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="projets-personnels">
+                    <div class="trm-title-divider">
+                        <h5 class="text-xl font-black uppercase">Projets Majeurs</h5>
+                        <div></div>
+                        <span class="text-blue-500 font-bold text-sm">03</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="trm-card overflow-hidden group">
+                            <div class="h-40 bg-slate-800 relative">
+                                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+                                <div class="p-6">
+                                    <h6 class="text-sm font-black uppercase">MediSecure DPI</h6>
+                                    <p class="text-[10px] text-slate-400 mt-2 italic font-bold">Dart, Flutter, Firebase</p>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-slate-800">
+                                <p class="text-xs text-slate-500 mb-4">Application mobile de Dossier Patient Informatisé sécurisée avec authentification et stockage en temps réel.</p>
+                                <a href="#" class="text-blue-500 text-[10px] font-bold uppercase hover:underline">Voir Projet <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="trm-card overflow-hidden group">
+                            <div class="h-40 bg-slate-800 relative">
+                                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+                                <div class="p-6">
+                                    <h6 class="text-sm font-black uppercase">my-shop-app</h6>
+                                    <p class="text-[10px] text-slate-400 mt-2 italic font-bold">TypeScript, React, Tailwind</p>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-slate-800">
+                                <p class="text-xs text-slate-500 mb-4">Plateforme e-commerce moderne avec gestion de panier, catalogue dynamique et interface responsive.</p>
+                                <a href="#" class="text-blue-500 text-[10px] font-bold uppercase hover:underline">Voir Projet <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="trm-card overflow-hidden group">
+                            <div class="h-40 bg-slate-800 relative">
+                                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+                                <div class="p-6">
+                                    <h6 class="text-sm font-black uppercase">Project-Meteo</h6>
+                                    <p class="text-[10px] text-slate-400 mt-2 italic font-bold">Python, Flask, OpenWeather API</p>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-slate-800">
+                                <p class="text-xs text-slate-500 mb-4">Application de prévisions météorologiques utilisant des APIs externes pour des données précises en direct.</p>
+                                <a href="#" class="text-blue-500 text-[10px] font-bold uppercase hover:underline">Voir Projet <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="trm-card overflow-hidden group">
+                            <div class="h-40 bg-slate-800 relative">
+                                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+                                <div class="p-6">
+                                    <h6 class="text-sm font-black uppercase">MyFyp2</h6>
+                                    <p class="text-[10px] text-slate-400 mt-2 italic font-bold">Kotlin, Android SDK, SQLite</p>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-slate-800">
+                                <p class="text-xs text-slate-500 mb-4">Projet de fin d'études : application mobile native focalisée sur l'optimisation des performances Android.</p>
+                                <a href="#" class="text-blue-500 text-[10px] font-bold uppercase hover:underline">Voir Projet <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="trm-card overflow-hidden group">
+                            <div class="h-40 bg-slate-800 relative">
+                                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+                                <div class="p-6">
+                                    <h6 class="text-sm font-black uppercase">Big-Data-Analysis</h6>
+                                    <p class="text-[10px] text-slate-400 mt-2 italic font-bold">Python, Pandas, Scikit-learn</p>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-slate-800">
+                                <p class="text-xs text-slate-500 mb-4">Analyse de larges jeux de données, clustering et modèles de prédiction pour l'aide à la décision.</p>
+                                <a href="#" class="text-blue-500 text-[10px] font-bold uppercase hover:underline">Voir Projet <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="trm-card overflow-hidden group">
+                            <div class="h-40 bg-slate-800 relative">
+                                <div class="absolute inset-0 bg-blue-600/20 group-hover:bg-transparent transition"></div>
+                                <div class="p-6">
+                                    <h6 class="text-sm font-black uppercase">Cloud Architecture Sync</h6>
+                                    <p class="text-[10px] text-slate-400 mt-2 italic font-bold">Go, Docker, Kubernetes</p>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-slate-800">
+                                <p class="text-xs text-slate-500 mb-4">Infrastructure scalable utilisant des microservices pour la synchronisation de données massives.</p>
+                                <a href="#" class="text-blue-500 text-[10px] font-bold uppercase hover:underline">Voir Projet <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+        }
+        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-mode');
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'fr', includedLanguages: 'en,fr', autoDisplay: false }, 'google_translate_element');
+        }
+        function translatePage(lang) {
+            const googleCombo = document.querySelector('.goog-te-combo');
+            if (googleCombo) { googleCombo.value = lang; googleCombo.dispatchEvent(new Event('change')); }
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
