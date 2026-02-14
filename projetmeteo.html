@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>MyShop - Case Study</title>
+    <style>
+        :root { 
+            --accent: #3b82f6; 
+            --bg-dark: #0b1118; 
+            --card-dark: #141c26; 
+            --border: #1e293b; 
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --header-bg: rgba(11, 17, 24, 0.8);
+        }
+
+        body.light-mode {
+            --bg-dark: #f1f5f9;
+            --card-dark: #ffffff;
+            --border: #e2e8f0;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --header-bg: rgba(241, 245, 249, 0.8);
+        }
+
+        body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; transition: background 0.3s, color 0.3s; }
+        
+        header { background-color: var(--header-bg) !important; border-bottom: 1px solid var(--border) !important; }
+
+        .trm-card { background: var(--card-dark); border: 1px solid var(--border); border-radius: 1.5rem; transition: 0.4s; }
+        .trm-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--text-main) 30%, var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slider-container {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+        .slider-container::-webkit-scrollbar { display: none; }
+
+        .slide-card {
+            min-width: 280px;
+            height: 550px;
+            background: #000;
+            border-radius: 30px;
+            border: 4px solid var(--card-dark);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            overflow: hidden;
+            transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .slide-card:hover {
+            transform: scale(1.03) rotate(1deg);
+            border-color: var(--accent);
+        }
+        .slide-card img { width: 100%; height: 100%; object-fit: contain; }
+
+        .theme-switch-wrapper { display: flex; align-items: center; background: var(--card-dark); border: 1px solid var(--border); border-radius: 20px; padding: 2px; cursor: pointer; position: relative; width: 60px; height: 30px; }
+        .theme-switch-ball { position: absolute; background: var(--accent); width: 24px; height: 24px; border-radius: 50%; transition: 0.3s; left: 3px; z-index: 2; }
+        body.light-mode .theme-switch-ball { left: 31px; }
+        .theme-icons { display: flex; justify-content: space-between; width: 100%; padding: 0 6px; font-size: 12px; color: #fbbf24; }
+
+        #mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; background: var(--bg-dark); z-index: 100; }
+        #mobile-menu.active { transform: translateX(0); }
+        
+        .role-tag { font-size: 10px; font-weight: 900; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; }
+    </style>
+</head>
+<body class="dark-mode">
+
+    <header class="fixed top-0 w-full z-50 px-10 py-4 flex justify-between items-center">
+        <div class="text-2xl font-black uppercase tracking-tighter">True<span class="text-blue-500">man</span></div>
+        <nav class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest">
+            <a href="index.html" class="hover:text-blue-500 transition">Accueil</a>
+            <a href="portfolio.html" class="text-blue-500 transition">Portfolio</a>
+            <a href="resume.html" class="hover:text-blue-500 transition">Resume</a>
+            <a href="mailto:sanohahmad1996@gmail.com" class="hover:text-blue-500 transition">Contact</a>
+        </nav>
+        <div class="flex items-center gap-6">
+            <div class="theme-switch-wrapper" onclick="toggleTheme()">
+                <div class="theme-switch-ball shadow-md"></div>
+                <div class="theme-icons"><i class="fas fa-sun"></i><i class="fas fa-moon"></i></div>
+            </div>
+            <a href="resume.html" class="hidden lg:flex bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-black uppercase px-5 py-2.5 rounded-lg items-center gap-2 transition shadow-lg shadow-blue-500/20">
+                <i class="fas fa-file-alt"></i> Télécharger le CV
+            </a>
+            <button class="md:hidden text-2xl" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 p-8 md:hidden shadow-2xl">
+        <button onclick="toggleMobileMenu()" class="text-2xl mb-10"><i class="fas fa-times"></i></button>
+        <nav class="flex flex-col gap-6 text-sm font-bold uppercase tracking-widest">
+            <a href="index.html" onclick="toggleMobileMenu()">Accueil</a>
+            <a href="portfolio.html" class="text-blue-500" onclick="toggleMobileMenu()">Portfolio</a>
+            <a href="resume.html" onclick="toggleMobileMenu()">Resume</a>
+            <a href="mailto:sanohahmad1996@gmail.com">Contact</a>
+        </nav>
+    </div>
+
+    <main class="pt-32 pb-20 container mx-auto px-6">
+        <section class="text-center mb-20" data-aos="fade-up">
+            <span class="text-blue-500 font-bold uppercase tracking-[0.3em] text-xs">Solution E-commerce Moderne</span>
+            <h1 class="text-5xl md:text-7xl font-black mt-4 mb-6 gradient-text uppercase">MyShop</h1>
+            <p class="max-w-2xl mx-auto text-slate-400">Une plateforme de vente en ligne haute performance avec gestion de catalogue dynamique, authentification sécurisée et tunnel d'achat optimisé.</p>
+        </section>
+
+        <section class="mb-20" data-aos="fade-up">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xs font-black uppercase tracking-widest opacity-50">Interface Utilisateur & Design</h3>
+                <div class="flex gap-2">
+                    <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-slate-700"></div>
+                    <div class="w-2 h-2 rounded-full bg-slate-700"></div>
+                </div>
+            </div>
+            
+            <div class="slider-container">
+                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-03 235437.png" alt="Home Page"></div>
+                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-03 235516.png" alt="Product Listing"></div>
+                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-03 235559.png" alt="Cart System"></div>
+                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-03 235612.png" alt="Cart System"></div>
+                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-03 235636.png" alt="Cart System"></div>
+                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-03 235900.png" alt="Cart System"></div>
+                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-03 235955.png" alt="Cart System"></div>
+                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-04 000014.png" alt="Cart System"></div>
+                </div>
+        </section>
+
+        <div class="grid lg:grid-cols-3 gap-10">
+            <div class="lg:col-span-2 space-y-10">
+                <div class="trm-card p-10" data-aos="fade-right">
+                    <h2 class="text-2xl font-black mb-6 uppercase flex items-center gap-4">
+                        <i class="fas fa-shopping-basket text-blue-500"></i> Expérience Utilisateur
+                    </h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+                            <span class="role-tag bg-blue-500/20 text-blue-500 mb-3 inline-block">Client</span>
+                            <p class="text-xs leading-relaxed">Navigation fluide, filtres intelligents et gestion simplifiée du panier d'achat.</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+                            <span class="role-tag bg-emerald-500/20 text-emerald-500 mb-3 inline-block">Vendeur</span>
+                            <p class="text-xs leading-relaxed">Tableau de bord de gestion des stocks, ajout de produits et suivi des commandes.</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+                            <span class="role-tag bg-purple-500/20 text-purple-500 mb-3 inline-block">Système</span>
+                            <p class="text-xs leading-relaxed">Calcul automatique des taxes, frais de port et génération de factures PDF.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trm-card p-10" data-aos="fade-right">
+                    <h2 class="text-2xl font-black mb-6 uppercase flex items-center gap-4">
+                        <i class="fas fa-cogs text-blue-500"></i> Fonctionnalités E-commerce
+                    </h2>
+                    
+                    <ul class="grid md:grid-cols-2 gap-6 text-sm">
+                        <li class="flex gap-4">
+                            <i class="fas fa-bolt text-blue-500 mt-1"></i>
+                            <span><strong>Fast Performance :</strong> Rendu côté serveur (SSR) via Next.js pour un SEO optimal et un chargement instantané.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <i class="fas fa-credit-card text-blue-500 mt-1"></i>
+                            <span><strong>Paiement Sécurisé :</strong> Intégration complète de Stripe API avec support 3D Secure.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <i class="fas fa-search text-blue-500 mt-1"></i>
+                            <span><strong>Smart Search :</strong> Moteur de recherche performant avec suggestions en temps réel.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <i class="fas fa-database text-blue-500 mt-1"></i>
+                            <span><strong>Cloud Sync :</strong> Gestion des données et images produits via Supabase Storage & Database.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="trm-card p-8 sticky top-28" data-aos="fade-left">
+                    <h3 class="text-xs font-black uppercase text-blue-500 mb-6">Stack Technique</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b border-white/5 pb-3">
+                            <span class="text-[10px] font-bold uppercase opacity-50">Frontend</span>
+                            <span class="text-xs font-black">Next.js / Tailwind</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white/5 pb-3">
+                            <span class="text-[10px] font-bold uppercase opacity-50">Backend</span>
+                            <span class="text-xs font-black">Supabase / Edge Functions</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white/5 pb-3">
+                            <span class="text-[10px] font-bold uppercase opacity-50">Payment</span>
+                            <span class="text-xs font-black text-blue-500">Stripe SDK</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] font-bold uppercase opacity-50">Auth</span>
+                            <span class="text-xs font-black">OAuth / Magic Links</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-4 bg-blue-500/5 rounded-xl border border-blue-500/10 italic text-[11px] text-slate-500">
+                        "MyShop illustre ma maîtrise des architectures SaaS modernes, privilégiant la scalabilité et l'expérience utilisateur finale."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-10 text-center border-t border-white/5 opacity-30 text-[10px] font-bold uppercase tracking-[0.5em]">
+        &copy; 2026 Ahmad Sanoh - MyShop Case Study
+    </footer>
+
+    <script>
+        // AOS Animation
+        AOS.init({ duration: 1000, once: true });
+
+        // Theme Switch Logic
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        }
+
+        // Initialize Theme
+        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-mode');
+    </script>
+</body>
+</html>
