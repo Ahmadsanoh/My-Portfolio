@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <title>MyShop - Case Study</title>
+    <title>Projet Météo - Smart Leisure Case Study</title>
     <style>
         :root { 
             --accent: #3b82f6; 
@@ -54,7 +54,7 @@
 
         .slide-card {
             min-width: 280px;
-            height: 550px;
+            height: 500px;
             background: #000;
             border-radius: 30px;
             border: 4px solid var(--card-dark);
@@ -68,7 +68,7 @@
             transform: scale(1.03) rotate(1deg);
             border-color: var(--accent);
         }
-        .slide-card img { width: 100%; height: 100%; object-fit: contain; }
+        .slide-card img { width: 100%; height: 100%; object-fit: cover; }
 
         .theme-switch-wrapper { display: flex; align-items: center; background: var(--card-dark); border: 1px solid var(--border); border-radius: 20px; padding: 2px; cursor: pointer; position: relative; width: 60px; height: 30px; }
         .theme-switch-ball { position: absolute; background: var(--accent); width: 24px; height: 24px; border-radius: 50%; transition: 0.3s; left: 3px; z-index: 2; }
@@ -117,76 +117,70 @@
 
     <main class="pt-32 pb-20 container mx-auto px-6">
         <section class="text-center mb-20" data-aos="fade-up">
-            <span class="text-blue-500 font-bold uppercase tracking-[0.3em] text-xs">Solution E-commerce Moderne</span>
-            <h1 class="text-5xl md:text-7xl font-black mt-4 mb-6 gradient-text uppercase">MyShop</h1>
-            <p class="max-w-2xl mx-auto text-slate-400">Une plateforme de vente en ligne haute performance avec gestion de catalogue dynamique, authentification sécurisée et tunnel d'achat optimisé.</p>
+            <span class="text-blue-500 font-bold uppercase tracking-[0.3em] text-xs">Smart Leisure | Octobre 2025 - Novembre 2025</span>
+            <h1 class="text-5xl md:text-7xl font-black mt-4 mb-6 gradient-text uppercase">Projet Météo</h1>
+            <p class="max-w-3xl mx-auto text-slate-400">Développement d’une application serveur en Python permettant de recommander des activités urbaines en fonction des conditions météorologiques et des contraintes temporelles. La solution intègre des API externes pour centraliser les données météo et environnementales, tout en proposant un système de recommandation et de vote (Méthode Condorcet) afin d’optimiser la planification des loisirs à l’échelle d’une ville.</p>
         </section>
 
         <section class="mb-20" data-aos="fade-up">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-xs font-black uppercase tracking-widest opacity-50">Interface Utilisateur & Design</h3>
+                <h3 class="text-xs font-black uppercase tracking-widest opacity-50">Visualisation des données & Architecture</h3>
                 <div class="flex gap-2">
                     <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                    <div class="w-2 h-2 rounded-full bg-slate-700"></div>
                     <div class="w-2 h-2 rounded-full bg-slate-700"></div>
                 </div>
             </div>
             
             <div class="slider-container">
-                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-03 235437.png" alt="Home Page"></div>
-                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-03 235516.png" alt="Product Listing"></div>
-                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-03 235559.png" alt="Cart System"></div>
-                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-03 235612.png" alt="Cart System"></div>
-                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-03 235636.png" alt="Cart System"></div>
-                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-03 235900.png" alt="Cart System"></div>
-                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-03 235955.png" alt="Cart System"></div>
-                <div class="slide-card"><img src="assets\MyShop\Screenshot 2026-02-04 000014.png" alt="Cart System"></div>
-                </div>
+                <div class="slide-card"><img src="assets/Meteo/dashboard.png" alt="Meteo Interface"></div>
+                <div class="slide-card"><img src="assets/Meteo/recommandations.png" alt="Recommendation Logic"></div>
+                <div class="slide-card"><img src="assets/Meteo/voting.png" alt="Condorcet Voting System"></div>
+            </div>
         </section>
 
         <div class="grid lg:grid-cols-3 gap-10">
             <div class="lg:col-span-2 space-y-10">
                 <div class="trm-card p-10" data-aos="fade-right">
                     <h2 class="text-2xl font-black mb-6 uppercase flex items-center gap-4">
-                        <i class="fas fa-shopping-basket text-blue-500"></i> Expérience Utilisateur
+                        <i class="fas fa-brain text-blue-500"></i> Missions & Logique Métier
                     </h2>
                     <div class="grid md:grid-cols-3 gap-6">
                         <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
-                            <span class="role-tag bg-blue-500/20 text-blue-500 mb-3 inline-block">Client</span>
-                            <p class="text-xs leading-relaxed">Navigation fluide, filtres intelligents et gestion simplifiée du panier d'achat.</p>
+                            <span class="role-tag bg-blue-500/20 text-blue-500 mb-3 inline-block">Backend</span>
+                            <p class="text-xs leading-relaxed">Architecture Python robuste basée sur les principes SOLID pour une maintenance évolutive.</p>
                         </div>
                         <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
-                            <span class="role-tag bg-emerald-500/20 text-emerald-500 mb-3 inline-block">Vendeur</span>
-                            <p class="text-xs leading-relaxed">Tableau de bord de gestion des stocks, ajout de produits et suivi des commandes.</p>
+                            <span class="role-tag bg-emerald-500/20 text-emerald-500 mb-3 inline-block">Data API</span>
+                            <p class="text-xs leading-relaxed">Centralisation en temps réel des données météo et de qualité de l'air via APIs REST.</p>
                         </div>
                         <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
-                            <span class="role-tag bg-purple-500/20 text-purple-500 mb-3 inline-block">Système</span>
-                            <p class="text-xs leading-relaxed">Calcul automatique des taxes, frais de port et génération de factures PDF.</p>
+                            <span class="role-tag bg-purple-500/20 text-purple-500 mb-3 inline-block">Algorithmes</span>
+                            <p class="text-xs leading-relaxed">Système de filtrage multicritères et implémentation de la méthode de vote Condorcet.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="trm-card p-10" data-aos="fade-right">
                     <h2 class="text-2xl font-black mb-6 uppercase flex items-center gap-4">
-                        <i class="fas fa-cogs text-blue-500"></i> Fonctionnalités E-commerce
+                        <i class="fas fa-microchip text-blue-500"></i> Expertise Technique
                     </h2>
                     
                     <ul class="grid md:grid-cols-2 gap-6 text-sm">
                         <li class="flex gap-4">
-                            <i class="fas fa-bolt text-blue-500 mt-1"></i>
-                            <span><strong>Fast Performance :</strong> Rendu côté serveur (SSR) via Next.js pour un SEO optimal et un chargement instantané.</span>
+                            <i class="fas fa-check-circle text-blue-500 mt-1"></i>
+                            <span><strong>Qualité Code :</strong> Tests unitaires complets avec <strong>pytest</strong> pour garantir la fiabilité des calculs.</span>
                         </li>
                         <li class="flex gap-4">
-                            <i class="fas fa-credit-card text-blue-500 mt-1"></i>
-                            <span><strong>Paiement Sécurisé :</strong> Intégration complète de Stripe API avec support 3D Secure.</span>
+                            <i class="fas fa-book text-blue-500 mt-1"></i>
+                            <span><strong>Documentation :</strong> Génération de documentation technique automatisée via <strong>Sphinx</strong>.</span>
                         </li>
                         <li class="flex gap-4">
-                            <i class="fas fa-search text-blue-500 mt-1"></i>
-                            <span><strong>Smart Search :</strong> Moteur de recherche performant avec suggestions en temps réel.</span>
+                            <i class="fas fa-sliders-h text-blue-500 mt-1"></i>
+                            <span><strong>Configuration :</strong> Gestion flexible des paramètres via fichiers <strong>YAML</strong> et <strong>TOML</strong>.</span>
                         </li>
                         <li class="flex gap-4">
-                            <i class="fas fa-database text-blue-500 mt-1"></i>
-                            <span><strong>Cloud Sync :</strong> Gestion des données et images produits via Supabase Storage & Database.</span>
+                            <i class="fas fa-cloud-sun text-blue-500 mt-1"></i>
+                            <span><strong>Environnement :</strong> Analyse prédictive basée sur les seuils environnementaux critiques.</span>
                         </li>
                     </ul>
                 </div>
@@ -194,28 +188,32 @@
 
             <div class="space-y-6">
                 <div class="trm-card p-8 sticky top-28" data-aos="fade-left">
-                    <h3 class="text-xs font-black uppercase text-blue-500 mb-6">Stack Technique</h3>
+                    <h3 class="text-xs font-black uppercase text-blue-500 mb-6">Environnement technique</h3>
                     <div class="space-y-4">
                         <div class="flex justify-between items-center border-b border-white/5 pb-3">
-                            <span class="text-[10px] font-bold uppercase opacity-50">Frontend</span>
-                            <span class="text-xs font-black">Next.js / Tailwind</span>
+                            <span class="text-[10px] font-bold uppercase opacity-50">Langage</span>
+                            <span class="text-xs font-black">Python 3.x</span>
                         </div>
                         <div class="flex justify-between items-center border-b border-white/5 pb-3">
-                            <span class="text-[10px] font-bold uppercase opacity-50">Backend</span>
-                            <span class="text-xs font-black">Supabase / Edge Functions</span>
+                            <span class="text-[10px] font-bold uppercase opacity-50">Testing</span>
+                            <span class="text-xs font-black text-blue-500">Pytest</span>
                         </div>
                         <div class="flex justify-between items-center border-b border-white/5 pb-3">
-                            <span class="text-[10px] font-bold uppercase opacity-50">Payment</span>
-                            <span class="text-xs font-black text-blue-500">Stripe SDK</span>
+                            <span class="text-[10px] font-bold uppercase opacity-50">Data Sources</span>
+                            <span class="text-xs font-black">OpenWeather / Air Quality API</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white/5 pb-3">
+                            <span class="text-[10px] font-bold uppercase opacity-50">Formats</span>
+                            <span class="text-xs font-black">YAML / TOML</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-[10px] font-bold uppercase opacity-50">Auth</span>
-                            <span class="text-xs font-black">OAuth / Magic Links</span>
+                            <span class="text-[10px] font-bold uppercase opacity-50">Documentation</span>
+                            <span class="text-xs font-black">Sphinx</span>
                         </div>
                     </div>
                     
                     <div class="mt-8 p-4 bg-blue-500/5 rounded-xl border border-blue-500/10 italic text-[11px] text-slate-500">
-                        "MyShop illustre ma maîtrise des architectures SaaS modernes, privilégiant la scalabilité et l'expérience utilisateur finale."
+                        "Ce projet démontre ma capacité à concevoir des backends Python complexes, alliant rigueur algorithmique et intégration de services tiers."
                     </div>
                 </div>
             </div>
@@ -223,25 +221,21 @@
     </main>
 
     <footer class="py-10 text-center border-t border-white/5 opacity-30 text-[10px] font-bold uppercase tracking-[0.5em]">
-        &copy; 2026 Ahmad Sanoh - MyShop Case Study
+        &copy; 2026 Ahmad Sanoh - Projet Météo Case Study
     </footer>
 
     <script>
-        // AOS Animation
         AOS.init({ duration: 1000, once: true });
 
-        // Theme Switch Logic
         function toggleTheme() {
             document.body.classList.toggle('light-mode');
             localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
         }
 
-        // Mobile Menu Toggle
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('active');
         }
 
-        // Initialize Theme
         if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-mode');
     </script>
 </body>

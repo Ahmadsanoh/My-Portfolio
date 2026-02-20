@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <title>BrainCoach - Case Study</title>
+    <title>BrainCoach - Neurocoaching App Case Study</title>
     <style>
         :root { 
             --accent: #3b82f6; 
@@ -44,7 +44,7 @@
 
         .slider-container {
             display: flex;
-            gap: 25px;
+            gap: 20px;
             overflow-x: auto;
             padding: 20px 0;
             scroll-snap-type: x mandatory;
@@ -53,8 +53,8 @@
         .slider-container::-webkit-scrollbar { display: none; }
 
         .slide-card {
-            min-width: 280px;
-            height: 550px;
+            min-width: 260px;
+            height: 520px;
             background: #000;
             border-radius: 30px;
             border: 4px solid var(--card-dark);
@@ -65,10 +65,10 @@
             transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
         }
         .slide-card:hover {
-            transform: scale(1.03) rotate(1deg);
+            transform: scale(1.03);
             border-color: var(--accent);
         }
-        .slide-card img { width: 100%; height: 100%; object-fit: contain; }
+        .slide-card img { width: 100%; height: 100%; object-fit: cover; }
 
         .theme-switch-wrapper { display: flex; align-items: center; background: var(--card-dark); border: 1px solid var(--border); border-radius: 20px; padding: 2px; cursor: pointer; position: relative; width: 60px; height: 30px; }
         .theme-switch-ball { position: absolute; background: var(--accent); width: 24px; height: 24px; border-radius: 50%; transition: 0.3s; left: 3px; z-index: 2; }
@@ -83,7 +83,7 @@
 </head>
 <body class="dark-mode">
 
-    <header class="fixed top-0 w-full z-50 px-10 py-4 flex justify-between items-center">
+    <header class="fixed top-0 w-full z-50 px-6 md:px-10 py-4 flex justify-between items-center">
         <div class="text-2xl font-black uppercase tracking-tighter">True<span class="text-blue-500">man</span></div>
         <nav class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest">
             <a href="index.html" class="hover:text-blue-500 transition">Accueil</a>
@@ -117,14 +117,14 @@
 
     <main class="pt-32 pb-20 container mx-auto px-6">
         <section class="text-center mb-20" data-aos="fade-up">
-            <span class="text-blue-500 font-bold uppercase tracking-[0.3em] text-xs">Application Android sécurisée d’entraînement cognitif</span>
-            <h1 class="text-5xl md:text-7xl font-black mt-4 mb-6 gradient-text uppercase">Braincoach</h1>
-            <p class="max-w-2xl mx-auto text-slate-400">Application mobile native d’entraînement cérébral intégrant authentification sécurisée, base de données temps réel Firebase et modules interactifs de calcul algorithmique</p>
+            <span class="text-blue-500 font-bold uppercase tracking-[0.3em] text-xs">Neurocoaching App | Avril 2024 - Juillet 2024</span>
+            <h1 class="text-5xl md:text-7xl font-black mt-4 mb-6 gradient-text uppercase">BrainCoach</h1>
+            <p class="max-w-3xl mx-auto text-slate-400">Développement d’une application mobile BrainCoach sous Android Studio avec Kotlin, visant à fournir une plateforme sécurisée et interactive pour l’entraînement cérébral et la résolution de tests mathématiques. L’application s’appuie sur les services Firebase pour gérer l’authentification, la gestion des utilisateurs et le stockage des données en temps réel, garantissant une expérience utilisateur fluide, sécurisée et personnalisée.</p>
         </section>
 
         <section class="mb-20" data-aos="fade-up">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-xs font-black uppercase tracking-widest opacity-50">Interface Utilisateur & Design Android</h3>
+                <h3 class="text-xs font-black uppercase tracking-widest opacity-50">Interface Utilisateur & Design</h3>
                 <div class="flex gap-2">
                     <div class="w-2 h-2 rounded-full bg-blue-500"></div>
                     <div class="w-2 h-2 rounded-full bg-slate-700"></div>
@@ -133,14 +133,14 @@
             </div>
             
             <div class="slider-container">
-                <div class="slide-card"><img src="assets/Braincoach/Screenshot 2026-02-04 002802.png" alt="Splash Screen"></div>
-                <div class="slide-card"><img src="assets/Braincoach/Screenshot 2026-02-04 002839.png" alt="Login Page"></div>
-                <div class="slide-card"><img src="assets/Braincoach/Screenshot 2026-02-04 002913.png" alt="Register Page"></div>
-                <div class="slide-card"><img src="assets/Braincoach/Screenshot 2026-02-04 002954.png" alt="Main Dashboard"></div>
-                <div class="slide-card"><img src="assets/Braincoach/Screenshot 2026-02-04 003010.png" alt="Math Challenges"></div>
-                <div class="slide-card"><img src="assets/Braincoach/Screenshot 2026-02-04 003114.png" alt="Triangle Test"></div>
-                <div class="slide-card"><img src="assets/Braincoach/Screenshot 2026-02-04 003307.png" alt="Calculation Mode"></div>
-                <div class="slide-card"><img src="assets/Braincoach/Screenshot 2026-02-04 003335.png" alt="Profile Settings"></div>
+                <div class="slide-card"><img src="assets/Braincoach/img1.png" alt="Splash Screen"></div>
+                <div class="slide-card"><img src="assets/Braincoach/img2.png" alt="Auth System"></div>
+                <div class="slide-card"><img src="assets/Braincoach/img3.png" alt="Registration"></div>
+                <div class="slide-card"><img src="assets/Braincoach/img4.png" alt="Home Dashboard"></div>
+                <div class="slide-card"><img src="assets/Braincoach/img5.png" alt="Triangle Test"></div>
+                <div class="slide-card"><img src="assets/Braincoach/img6.png" alt="Calculation Test"></div>
+                <div class="slide-card"><img src="assets/Braincoach/img7.png" alt="Results View"></div>
+                <div class="slide-card"><img src="assets/Braincoach/img8.png" alt="User Profile"></div>
             </div>
         </section>
 
@@ -148,45 +148,44 @@
             <div class="lg:col-span-2 space-y-10">
                 <div class="trm-card p-10" data-aos="fade-right">
                     <h2 class="text-2xl font-black mb-6 uppercase flex items-center gap-4">
-                        <i class="fas fa-user-check text-blue-500"></i> Expérience Utilisateur
+                        <i class="fas fa-tasks text-blue-500"></i> Missions Réalisées
                     </h2>
                     <div class="grid md:grid-cols-3 gap-6">
                         <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
-                            <span class="role-tag bg-blue-500/20 text-blue-500 mb-3 inline-block">Authentification</span>
-                            <p class="text-xs leading-relaxed">Flux d'inscription sécurisé avec validation dynamique des champs (email, téléphone) en temps réel.</p>
+                            <span class="role-tag bg-blue-500/20 text-blue-500 mb-3 inline-block">Sécurité</span>
+                            <p class="text-xs leading-relaxed">Système d'authentification complet via Firebase Auth avec validation stricte multi-champs.</p>
                         </div>
                         <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
-                            <span class="role-tag bg-emerald-500/20 text-emerald-500 mb-3 inline-block">Gamification</span>
-                            <p class="text-xs leading-relaxed">Accès instantané à trois tests cognitifs : Triangle Math, Low to High, et Quick Calculation.</p>
+                            <span class="role-tag bg-emerald-500/20 text-emerald-500 mb-3 inline-block">Architecture</span>
+                            <p class="text-xs leading-relaxed">Conception de la Home Activity et navigation intelligente entre les modules de tests.</p>
                         </div>
                         <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
-                            <span class="role-tag bg-purple-500/20 text-purple-500 mb-3 inline-block">Synchronisation</span>
-                            <p class="text-xs leading-relaxed">Récupération fluide des données utilisateur depuis Firebase Realtime Database après chaque login.</p>
+                            <span class="role-tag bg-purple-500/20 text-purple-500 mb-3 inline-block">UX/UI</span>
+                            <p class="text-xs leading-relaxed">Gestion des erreurs en temps réel et feedback contextuel via Toast messages.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="trm-card p-10" data-aos="fade-right">
                     <h2 class="text-2xl font-black mb-6 uppercase flex items-center gap-4">
-                        <i class="fas fa-brain text-blue-500"></i> Fonctionnalités de l'App
+                        <i class="fas fa-gamepad text-blue-500"></i> Modules d'Entraînement
                     </h2>
-                    
                     <ul class="grid md:grid-cols-2 gap-6 text-sm">
                         <li class="flex gap-4">
-                            <i class="fas fa-shield-alt text-blue-500 mt-1"></i>
-                            <span><strong>Firebase Auth :</strong> Système de gestion des identifiants robuste avec gestion automatique des erreurs et feedback contextuel.</span>
+                            <i class="fas fa-play-circle text-blue-500 mt-1"></i>
+                            <span><strong>Triangle Math Test :</strong> Évaluation de la logique géométrique et arithmétique.</span>
                         </li>
                         <li class="flex gap-4">
-                            <i class="fas fa-calculator text-blue-500 mt-1"></i>
-                            <span><strong>Puzzles Mathématiques :</strong> Logique métier complexe développée en Kotlin pour les tests de calcul rapide et logique spatiale.</span>
+                            <i class="fas fa-play-circle text-blue-500 mt-1"></i>
+                            <span><strong>Low to High Test :</strong> Test de rapidité cognitive et d'ordonnancement numérique.</span>
                         </li>
                         <li class="flex gap-4">
-                            <i class="fas fa-database text-blue-500 mt-1"></i>
-                            <span><strong>Realtime Database :</strong> Architecture NoSQL pour le stockage méthodique des profils et des scores de progression.</span>
+                            <i class="fas fa-play-circle text-blue-500 mt-1"></i>
+                            <span><strong>Quick Calculation :</strong> Entraînement au calcul mental haute pression.</span>
                         </li>
                         <li class="flex gap-4">
-                            <i class="fas fa-mobile-alt text-blue-500 mt-1"></i>
-                            <span><strong>Native UI :</strong> Interface réactive utilisant les Intentions Android pour une navigation fluide entre les modules d'entraînement.</span>
+                            <i class="fas fa-cloud text-blue-500 mt-1"></i>
+                            <span><strong>Cloud Sync :</strong> Synchronisation instantanée des scores via Firebase Realtime Database.</span>
                         </li>
                     </ul>
                 </div>
@@ -198,24 +197,24 @@
                     <div class="space-y-4">
                         <div class="flex justify-between items-center border-b border-white/5 pb-3">
                             <span class="text-[10px] font-bold uppercase opacity-50">Langage</span>
-                            <span class="text-xs font-black">Kotlin / Android SDK</span>
+                            <span class="text-xs font-black">Kotlin</span>
                         </div>
                         <div class="flex justify-between items-center border-b border-white/5 pb-3">
-                            <span class="text-[10px] font-bold uppercase opacity-50">Environnement</span>
+                            <span class="text-[10px] font-bold uppercase opacity-50">IDE</span>
                             <span class="text-xs font-black">Android Studio</span>
                         </div>
                         <div class="flex justify-between items-center border-b border-white/5 pb-3">
-                            <span class="text-[10px] font-bold uppercase opacity-50">Backend / Auth</span>
-                            <span class="text-xs font-black text-blue-500">Firebase Services</span>
+                            <span class="text-[10px] font-bold uppercase opacity-50">Backend</span>
+                            <span class="text-xs font-black">Firebase (Auth/DB)</span>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-[10px] font-bold uppercase opacity-50">Database</span>
-                            <span class="text-xs font-black">Firebase Realtime DB</span>
+                        <div class="flex justify-between items-center border-b border-white/5 pb-3">
+                            <span class="text-[10px] font-bold uppercase opacity-50">UI Framework</span>
+                            <span class="text-xs font-black">XML Layouts</span>
                         </div>
                     </div>
                     
                     <div class="mt-8 p-4 bg-blue-500/5 rounded-xl border border-blue-500/10 italic text-[11px] text-slate-500">
-                        "BrainCoach démontre ma capacité à concevoir des applications mobiles natives performantes, alliant logique algorithmique et services cloud sécurisés."
+                        "BrainCoach combine la puissance du développement natif Android avec la scalabilité de Firebase pour offrir une plateforme d'entraînement fiable."
                     </div>
                 </div>
             </div>
@@ -228,16 +227,13 @@
 
     <script>
         AOS.init({ duration: 1000, once: true });
-
         function toggleTheme() {
             document.body.classList.toggle('light-mode');
             localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
         }
-
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('active');
         }
-
         if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-mode');
     </script>
 </body>
